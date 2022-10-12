@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs'
 import Weather from '../components/Weather';
 import Spinner from '../components/Spinner';
+import Background from '../components/Background';
 
 export default function Home() {
   const [city, setCity] = useState('');
@@ -19,13 +20,12 @@ export default function Home() {
     // Fetching the data
     axios.get(url).then((response) => {
       setWeather(response.data)
-      // console.log(response.data)
     });
     // Resetting the search query and loading 
     setCity('');
     setLoading(false);
   }
-
+  
   if (loading) {
     return <Spinner />
   } else {
@@ -41,12 +41,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/40 z-[1]" />
 
         {/* Background Image pulled from Unsplash */}
-        <Image
-          src="https://images.unsplash.com/photo-1580193483760-d0ef2abaa348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-          alt="Sunny sky with clouds"
-          layout="fill"
-          className="object-cover"
-        />
+        {weather.main && <Background weather={weather}/> }
 
         {/* Input for Search */}
         <div className="relative flex justify-between items-center max-w-[500px] w-full m-auto pt-4 text-white z-10 ">
