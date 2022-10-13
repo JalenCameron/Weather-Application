@@ -57,7 +57,7 @@ const Background = ({weather}) => {
         // If the weather indicates that it's cloudy:
         return (
             <Image
-                src="https://images.unsplash.com/photo-1580193483760-d0ef2abaa348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                src="https://images.unsplash.com/photo-1505533321630-975218a5f66f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                 alt="Sunny sky with clouds"
                 layout="fill"
                 className="object-cover"
@@ -74,15 +74,6 @@ const Background = ({weather}) => {
             />
         )
     }
-
-    return (
-        <Image
-            src="https://images.unsplash.com/photo-1529126894674-8dd7cb884766?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            alt="A sunny and clear sky"
-            layout="fill"
-            className="object-cover"
-        />
-    )
 }
 
 export default Background

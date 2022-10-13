@@ -6,6 +6,7 @@ import { BsSearch } from 'react-icons/bs'
 import Weather from '../components/Weather';
 import Spinner from '../components/Spinner';
 import Background from '../components/Background';
+import Default from '../components/Default';
 
 export default function Home() {
   const [city, setCity] = useState('');
@@ -41,7 +42,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/40 z-[1]" />
 
         {/* Background Image pulled from Unsplash */}
-        {weather.main && <Background weather={weather}/> }
+        {weather.main ? <Background weather={weather}/> : <Default />}
 
         {/* Input for Search */}
         <div className="relative flex justify-between items-center max-w-[500px] w-full m-auto pt-4 text-white z-10 ">
