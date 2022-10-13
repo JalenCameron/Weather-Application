@@ -5,12 +5,12 @@ import { data } from 'autoprefixer'
 const Weather = ({weather}) => {
     console.log(weather)
     const description = weather.weather[0].description;
-    const sentence = description.split(" ");
+    // const sentence = description.split(" ");
 
-    for (let i = 0; i < sentence.length; i++) {
-        sentence[i] = sentence[i][0].toUpperCase() + sentence[i].substr(1);
-    };
-    sentence.join(" ")
+    // for (let i = 0; i < sentence.length; i++) {
+    //     sentence[i] = sentence[i][0].toUpperCase() + sentence[i].substr(1);
+    // };
+    // sentence.join(" ")
 
   return (
     <div className='relative flex flex-col justify-evenly max-w-[600px] w-full h-[100vh] m-auto p-4 text-gray-300 z-10'>
@@ -42,7 +42,7 @@ const Weather = ({weather}) => {
                 </div>
 
                 <div>
-                    <p className='font-bold text-2xl'>{sentence}</p>
+                    <p className='font-bold text-2xl' style={{textTransform: 'capitalize'}}>{description}</p>
                     <p className='text-xl'>Description</p>
                 </div>
             </div>
