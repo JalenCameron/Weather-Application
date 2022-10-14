@@ -1,28 +1,24 @@
-import React from 'react'
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
 import { data } from 'autoprefixer'
 
 const Weather = ({weather}) => {
     console.log(weather)
     const description = weather.weather[0].description;
-    // const sentence = description.split(" ");
-
-    // for (let i = 0; i < sentence.length; i++) {
-    //     sentence[i] = sentence[i][0].toUpperCase() + sentence[i].substr(1);
-    // };
-    // sentence.join(" ")
 
   return (
     <div className='relative flex flex-col justify-evenly max-w-[600px] w-full h-[100vh] m-auto p-4 text-gray-300 z-10'>
-        {/* Top */}
+
+        {/* Weather Temperature */}
         <div className='relative flex justify-between pt-12'>
             <div className='flex flex-col items-center'>
-                <Image src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt='The current weather' width="100" height="100" />
+                <Image src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt='Current weather displayed as an Icon' width="100" height="100" />
                 <p className='text-2xl'>{weather.weather[0].main}</p>
             </div>
             <p className='text-9xl'>{weather.main.temp.toFixed(0)}&#176;</p>
         </div>
-        {/* Bottom */}
+
+        {/* Miscellaneous Weather Information */}
         <div className='bg-black/50 relative p-8 rounded-md'>
             <p className='text-2xl text-center pb-6'>Weather in {weather.name}, {weather.sys.country}</p>
             <div className='flex justify-between text-center'>
