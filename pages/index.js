@@ -8,6 +8,7 @@ import Spinner from '../components/Spinner';
 import Background from '../components/Background';
 import Default from '../components/Default';
 import Input from "@mui/material/Input";
+import Greeting from '../components/Greeting';
 
 
 
@@ -82,7 +83,7 @@ export default function Home() {
         </div>
 
         {/* Displaying the Weather */}
-        {weather.main && <Weather weather={weather} />}
+        {weather.main ? <Weather weather={weather} /> : <Greeting />}
       </div>
     );
   }
