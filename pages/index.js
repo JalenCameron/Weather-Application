@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import axios from 'axios';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
@@ -8,6 +7,9 @@ import Weather from '../components/Weather';
 import Spinner from '../components/Spinner';
 import Background from '../components/Background';
 import Default from '../components/Default';
+import Input from "@mui/material/Input";
+
+
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -42,7 +44,10 @@ export default function Home() {
       <div>
         <Head>
           <title>Weather App</title>
-          <meta name="description" content="A Web Application that gives you current weather information depending on which city you input. This has been done through fetching data with an API key" />
+          <meta
+            name="description"
+            content="A Web Application that gives you current weather information depending on which city you input. This has been done through fetching data with an API key"
+          />
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -56,13 +61,14 @@ export default function Home() {
         <div className="relative flex justify-between items-center max-w-[500px] w-full m-auto pt-4 text-white z-10 ">
           <form
             onSubmit={fetchWeather}
-            className="flex justify-between items-center w-full m-auto p-3 bg-transparent border border-gray-300 text-white rounded-2xl"
+            className="flex justify-between items-center w-full m-auto p-3 bg-transparent border-none text-white rounded-2xl"
           >
             <div>
-              <input
+              <Input
                 onChange={(e) => setCity(e.target.value)}
                 className="bg-transparent border-none text-white focus:outline-none text-2xl"
                 type="text"
+                color="primary"
                 placeholder="Search for a City"
               />
             </div>

@@ -48,7 +48,7 @@ const Background = ({weather}) => {
         return (
             <Image
                 src="https://images.unsplash.com/photo-1486707471592-8e7eb7e36f78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1094&q=80"
-                alt="An Misty/Hazy Forest"
+                alt="A Misty/Hazy Forest"
                 layout="fill"
                 className="object-cover"
             />
