@@ -1,16 +1,14 @@
-import Head from 'next/head';
-import axios from 'axios';
-import { useState } from 'react';
-import { BsSearch } from 'react-icons/bs';
+import Head from "next/head";
+import axios from "axios";
+import { useState } from "react";
+import { BsSearch } from "react-icons/bs";
 import CachedIcon from "@mui/icons-material/Cached";
-import Weather from '../components/Weather';
-import Spinner from '../components/Spinner';
-import Background from '../components/Background';
-import Default from '../components/Default';
+import Weather from "../components/Weather";
+import Spinner from "../components/Spinner";
+import Background from "../components/Background";
+import Default from "../components/Default";
 import Input from "@mui/material/Input";
-import Greeting from '../components/Greeting';
-
-
+import Greeting from "../components/Greeting";
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -20,7 +18,7 @@ export default function Home() {
   // Creating a URL with my API key to fetch information
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
 
-  // Creating a function to fetch the data 
+  // Creating a function to fetch the data
   const fetchWeather = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -35,14 +33,14 @@ export default function Home() {
 
   // Creating a function to reset the Page
   const refresh = () => {
-      window.location.reload();
-  }
+    window.location.reload();
+  };
 
   if (loading) {
     return <Spinner />;
   } else {
     return (
-      <div>
+      <div className="m-4">
         <Head>
           <title>Weather App</title>
           <meta
