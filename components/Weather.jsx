@@ -43,7 +43,7 @@ const Weather = ({weather}) => {
 
         {/* Miscellaneous Weather Information */}
         <div className='bg-black/50 relative p-8 rounded-md mt-8 sm:mt-20'>
-            <p className='text-xl sm:text-2xl text-center pb-6'>Weather in {weather.name}, {weather.sys.country}</p>
+            <p className='text-xl sm:text-2xl text-center pb-6'>Current weather in {weather.name}, {weather.sys.country}</p>
             <div className='flex flex-col sm:flex-row sm:justify-between text-center'>
                 <div className='py-2 sm:py-0'>
                     <p className='text-md sm:text-xl'>Feels Like</p>
@@ -51,12 +51,12 @@ const Weather = ({weather}) => {
                 </div>
 
                 <div className='py-2 sm:py-0'>
-                    <p className='text-md sm:text-xl'>Sunrise (PT)</p>
+                    <p className='text-md sm:text-xl'>Sunrise (PST)</p>
                     <p className='font-bold text-lg sm:text-2xl'>{sunrise}</p>
                 </div>
 
                 <div className='py-2 sm:py-0'>
-                    <p className='text-md sm:text-xl'>Sunset (PT)</p>
+                    <p className='text-md sm:text-xl'>Sunset (PST)</p>
                     <p className='font-bold text-lg sm:text-2xl'>{sunset}</p>
                 </div>
 
