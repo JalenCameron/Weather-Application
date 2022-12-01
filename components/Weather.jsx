@@ -42,8 +42,8 @@ const Weather = ({weather}) => {
         </div>
 
         {/* Miscellaneous Weather Information */}
-        <div className='bg-black/50 relative p-8 rounded-md mt-8 sm:mt-20'>
-            <p className='text-xl sm:text-2xl text-center pb-6'>Current weather in {weather.name}, {weather.sys.country}</p>
+        <div className='mt-8 sm:mt-20'>
+            <p className='text-xl font-bold sm:text-2xl text-center pb-6'>Current weather in {weather.name}, {weather.sys.country}</p>
             <div className='flex flex-col sm:flex-row sm:justify-between text-center'>
                 <div className='py-2 sm:py-0'>
                     <p className='text-md sm:text-xl'>Feels Like</p>

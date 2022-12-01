@@ -57,31 +57,31 @@ export default function Home() {
         {weather.main ? <Background weather={weather} /> : <Default />}
 
         {/* Input for Search */}
-        <div className="relative flex justify-between items-center max-w-[500px] w-full m-auto pt-4 text-white z-10 ">
+        <div className="relative bg-black/50 rounded-md items-center max-w-[550px] w-full mx-auto mt-10 p-8 text-white z-10 ">
           <form
             onSubmit={fetchWeather}
-            className="flex justify-between items-center w-full m-auto p-3 bg-transparent border-none text-white rounded-2xl"
+            className="flex justify-center items-center w-full m-auto py-3 px-4 bg-transparent border-none text-white rounded-2xl"
           >
             <div>
               <Input
                 onChange={(e) => setCity(e.target.value)}
-                className="bg-transparent border-none text-white focus:outline-none text-2xl"
+                className="bg-transparent border-none text-white focus:outline-none text-sm sm:text-2xl"
                 type="text"
                 color="primary"
                 placeholder="Search for a City"
               />
             </div>
-            <button onClick={fetchWeather}>
+            <button onClick={fetchWeather} className="px-4">
               <BsSearch size={20} />
             </button>
+            <button className="relative pl-4" onClick={refresh}>
+              <CachedIcon size={10} />
+            </button>
           </form>
-          <button className="relative p-2" onClick={refresh}>
-            <CachedIcon size={10} />
-          </button>
-        </div>
 
-        {/* Displaying the Weather */}
-        {weather.main ? <Weather weather={weather} /> : <Greeting />}
+          {/* Displaying the Weather */}
+          {weather.main ? <Weather weather={weather} /> : <Greeting />}
+        </div>
       </div>
     );
   }
