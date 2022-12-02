@@ -83,10 +83,18 @@ export default function Home() {
                 placeholder="Enter a City"
               />
             </div>
-            <button onClick={fetchWeather} className="px-4">
+            <button
+              onClick={fetchWeather}
+              aria-label="Search Button"
+              className="px-4"
+            >
               <BsSearch size={20} />
             </button>
-            <button className="relative pl-4" onClick={refresh}>
+            <button
+              className="relative pl-4"
+              aria-label="Refresh Button"
+              onClick={refresh}
+            >
               <CachedIcon size={10} />
             </button>
           </form>
@@ -97,6 +105,7 @@ export default function Home() {
           <button
             onClick={() => setShowModal(true)}
             className="absolute right-[15px]"
+            aria-label="More Information Button"
           >
             <BsInfoCircleFill size={20} />
           </button>
