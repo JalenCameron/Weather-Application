@@ -51,7 +51,7 @@ h2 {
 
 .modalWrapper {
     width: 300px;
-    height: 400px;
+    height: 550px;
 }
 
 @media (min-width: 640px) {
