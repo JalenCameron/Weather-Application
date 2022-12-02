@@ -1,7 +1,7 @@
 import Head from "next/head";
 import axios from "axios";
 import { useState } from "react";
-import { BsSearch } from "react-icons/bs";
+import { BsSearch, BsInfoCircleFill } from "react-icons/bs";
 import CachedIcon from "@mui/icons-material/Cached";
 import Weather from "../components/Weather";
 import Spinner from "../components/Spinner";
@@ -9,11 +9,13 @@ import Background from "../components/Background";
 import Default from "../components/Default";
 import Input from "@mui/material/Input";
 import Greeting from "../components/Greeting";
+import Modal from "../components/Modal";
 
 export default function Home() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   // Creating a URL with my API key to fetch information
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
@@ -81,6 +83,35 @@ export default function Home() {
 
           {/* Displaying the Weather */}
           {weather.main ? <Weather weather={weather} /> : <Greeting />}
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="absolute right-[15px]"
+          >
+            <BsInfoCircleFill size={20} />
+          </button>
+          <Modal
+            onClose={() => setShowModal(false)}
+            show={showModal}
+            title={"About the Weather App"}
+          >
+            <h3 className="my-4">
+              <b>Tools Used:</b> <em>Next, Axios, Tailwind</em>
+            </h3>
+            <p className="my-4">
+              This web application utilizes OpenWeatherMap&apos;s API key to to
+              fetch short-term forecasts for over 200,000 known cities in the
+              world. All you have to do is enter the name of the city you are
+              looking for and it will return some information regarding the
+              current weather.
+            </p>
+            <p>
+              It will also display the Sunrise and Sunset times in relation to
+              Pacific Standard Time (currently I am working on a solution to
+              render the Sunrise and Sunset times so that they are dependent on
+              location).
+            </p>
+          </Modal>
         </div>
       </div>
     );
