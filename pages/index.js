@@ -10,11 +10,13 @@ import Default from "../components/Default";
 import Input from "@mui/material/Input";
 import Greeting from "../components/Greeting";
 import Modal from "../components/Modal";
+import Error from "../components/Error";
 
 export default function Home() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   // Creating a URL with my API key to fetch information
@@ -25,9 +27,15 @@ export default function Home() {
     e.preventDefault();
     setLoading(true);
     // Fetching the data
-    axios.get(url).then((response) => {
-      setWeather(response.data);
-    });
+    axios
+      .get(url)
+      .then((response) => {
+        setWeather(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(true);
+      });
     // Resetting the search query and loading
     setCity("");
     setLoading(false);
@@ -40,6 +48,8 @@ export default function Home() {
 
   if (loading) {
     return <Spinner />;
+  } else if (error) {
+    return <Error />;
   } else {
     return (
       <div className="m-4">
@@ -59,7 +69,7 @@ export default function Home() {
         {weather.main ? <Background weather={weather} /> : <Default />}
 
         {/* Input for Search */}
-        <div className="relative bg-black/50 rounded-md items-center max-w-[550px] w-full mx-auto mt-10 p-8 text-white z-10 ">
+        <div className="relative bg-black/50 rounded-md items-center max-w-[600px] w-full mx-auto mt-10 p-8 text-white z-10 ">
           <form
             onSubmit={fetchWeather}
             className="flex justify-center items-center w-full m-auto py-3 px-4 bg-transparent border-none text-white rounded-2xl"
@@ -70,7 +80,7 @@ export default function Home() {
                 className="bg-transparent border-none text-white focus:outline-none text-sm sm:text-2xl"
                 type="text"
                 color="primary"
-                placeholder="Search for a City"
+                placeholder="Enter a City"
               />
             </div>
             <button onClick={fetchWeather} className="px-4">
