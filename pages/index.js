@@ -69,7 +69,7 @@ export default function Home() {
         {weather.main ? <Background weather={weather} /> : <Default />}
 
         {/* Input for Search */}
-        <div className="relative bg-black/50 rounded-md items-center max-w-[600px] w-full mx-auto mt-10 p-8 text-white z-10 ">
+        <div className="relative bg-black/50 rounded-md items-center max-w-[650px] w-full mx-auto mt-10 p-8 text-white z-10 ">
           <form
             onSubmit={fetchWeather}
             className="flex justify-center items-center w-full m-auto py-3 px-4 bg-transparent border-none text-white rounded-2xl"
